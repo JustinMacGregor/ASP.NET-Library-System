@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ABCBooksClient_991471961.BookReference_991471961.BookInfo>
+
+@{
+    ViewBag.Title = "Landing";
+}
+
+<h2>Name: Justin MacGregor</h2>
+<br />
+<h2>ID: 991471961</h2>
+<br />
+<h2>Course Name: Enterprise Software Systems PROG30000</h2>
+<br />
+<h2>Instructor Name: Prof. Syed Tanbeer</h2>
+<br />
+<br />
+<input type="button" value="Enter Book Into Database" class="btn btn-info" onclick='window.location.href = "@Url.Action("Create", "Book", routeValues: null)"' />
+<br />
+<br />
+<input type="button" value="Retrieve All Book Information" class="btn btn-info" onclick='window.location.href = "@Url.Action("Index", "Book", routeValues: null)"' />
+<br />
+<br />
+
+@using (@Html.BeginForm("Edit", "Book", FormMethod.Post))
+{
+    @Html.TextBox("bookTitle")
+    <br />
+    <input type="submit" value="Edit (By Book Title)"/>
+}
+
+<br />
+<br />
+
+@using (@Html.BeginForm("Details", "Book", FormMethod.Post))
+{
+    @Html.TextBox("author")
+    <br />
+    <input type="submit" value="Details (By Author)"/>
+}
+
+<br />
+<br />
+
+@using (@Html.BeginForm("Delete", "Book", FormMethod.Post))
+{
+    @Html.TextBox("isbn")
+    <br />
+    <input type="submit" value="Delete (By ISBN)"/>
+}
